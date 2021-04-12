@@ -1818,21 +1818,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Die1
+  - name: 1
     output: Music
     clip: {fileID: 8300000, guid: defc424d4352062418db47e9771074c1, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Die2
+  - name: 2
     output: Music
     clip: {fileID: 8300000, guid: 64f977f0e11a1164ead1d3c359f8907e, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
-  - name: Die3
+  - name: 3
     output: Music
     clip: {fileID: 8300000, guid: f34da3bd2605433429c6804f9e7aa7f9, type: 3}
     volume: 1
@@ -1841,14 +1841,14 @@ MonoBehaviour:
     source: {fileID: 0}
   transitions:
   - name: Tran1
-    output: 
+    output: Music
     clip: {fileID: 8300000, guid: a2d938d4bc052724681346cc0e2cb667, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Tran2
-    output: 
+    output: Music
     clip: {fileID: 8300000, guid: dee092cd62bfb6e42bf29a26ba6972d9, type: 3}
     volume: 1
     pitch: 1

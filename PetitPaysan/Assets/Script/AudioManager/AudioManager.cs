@@ -45,16 +45,18 @@ public class AudioManager : MonoBehaviour {
 		#endif
         }
 
+        Debug.Log("Array: " + sounds.Count);
         Debug.Log("AudioManager loaded complete !");
     }
 	
 	// Update is called once per frame
 	void Start () {
-
+        Debug.Log("Array: " + sounds.Count);
 	}
 
     public void Play(string name)
     {
+        Debug.Log(name);
 
         if (sounds.Count <= 0)
         {
@@ -110,6 +112,7 @@ public class AudioManager : MonoBehaviour {
     public void AddSound(Sound s)
     {
 		s.source = gameObject.AddComponent<AudioSource>();
+
         s.source.clip = s.clip;
         s.source.volume = s.volume;
         s.source.pitch = s.pitch;

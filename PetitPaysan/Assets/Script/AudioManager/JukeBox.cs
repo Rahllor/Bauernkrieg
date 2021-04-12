@@ -7,8 +7,8 @@ public class JukeBox : MonoBehaviour {
 	public Sound[] sounds;
 	public Sound[] transitions;
 	private bool[] played;
-	private System.Random rnd;
-    public static JukeBox instance;
+	private System.Random rnd = new System.Random();
+	public static JukeBox instance;
 	private AudioSource currentMusic;
 	private bool isPlayingMusic;
 	
@@ -33,9 +33,9 @@ public class JukeBox : MonoBehaviour {
 		foreach(Sound s in transitions){
 			AudioManager.instance.AddSound(s);
 		}
-		rnd = new System.Random();
+		
 		isPlayingMusic = false;
-
+		JukeBox.instance.StartPlaying();
 	}
 	
 	// Update is called once per frame
@@ -65,11 +65,14 @@ public class JukeBox : MonoBehaviour {
 			ChangeMusic();
 			return;
 		}
+
 		int randomValue = rnd.Next(nMusicNotPlayed);
 		int i = 0;
 		for(int j = 0; j < played.Length; ++j){
 			if(!played[j]){
 				if(i == randomValue){
+					Debug.Log(j);
+					Debug.Log(sounds[j].name);
 					AudioManager.instance.Play(sounds[j].name);
 					currentMusic = sounds[j].source;
 					played[j] = true;
@@ -102,6 +105,7 @@ public class JukeBox : MonoBehaviour {
 	
 	IEnumerator waitEndOfMusic(){
 		isPlayingMusic = true;
+
 		yield return new WaitForSeconds(currentMusic.clip.length);
 		Transition();
 		isPlayingMusic = false;
